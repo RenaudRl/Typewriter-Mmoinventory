@@ -1,6 +1,6 @@
-plugins {
+﻿plugins {
     kotlin("jvm") version "2.2.10"
-    id("com.typewritermc.module-plugin")
+    id("com.typewritermc.module-plugin") version "2.1.0"
 }
 
 group = "btc.renaud.mmoinventoryextension"
@@ -14,6 +14,9 @@ repositories {
     maven("https://repo.codemc.io/repository/maven-releases/")
     maven("https://jitpack.io")
     maven("https://repo.opencollab.dev/main/")
+    flatDir {
+        dir("libs")
+    }
 }
 
 dependencies {
@@ -31,7 +34,7 @@ typewriter {
         shortDescription = "Typewriter extension for MmoInventory support."
         description =
             "This extension adds support for MmoInventory in Typewriter, allowing you to check items in mmoinventories."
-        engineVersion = file("../../version.txt").readText().trim()
+        engineVersion = "0.9.0-beta-171"
         channel = com.typewritermc.moduleplugin.ReleaseChannel.BETA
         dependencies {
             dependency("typewritermc", "Quest")
@@ -50,5 +53,4 @@ kotlin {
         jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_21)
     }
 }
-
 
