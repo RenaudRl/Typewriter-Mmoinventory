@@ -1,4 +1,4 @@
-﻿pluginManagement {
+pluginManagement {
     repositories {
         mavenCentral()
         gradlePluginPortal()
@@ -6,5 +6,5 @@
     }
 }
 
-rootProject.name = 'MMOInventoryExtension'
+rootProject.name = "MMOInventoryExtension"
 
