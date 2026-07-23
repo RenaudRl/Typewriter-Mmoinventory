@@ -22,3 +22,7 @@ git clone https://github.com/RenaudRl/TypeWriter-MmoInventoryExtension.git
 cd TypeWriter-MmoInventoryExtension
 # Build the project
 ./gradlew clean build
+
+## Documentation
+
+Full documentation available at [BTC Studio Docs](https://docs.borntocraftstudio.net/extensions/free/mmo-inventory/).
