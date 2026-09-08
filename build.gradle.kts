@@ -17,7 +17,7 @@ repositories {
 }
 
 group = "btc.renaud"
-version = "0.0.6"
+version = "0.0.7"
 
 base {
     archivesName.set("MMOInventoryExtension")
@@ -29,7 +29,7 @@ typewriter {
         name = "Mmoinventory"
         shortDescription = "Typewriter extension for MmoInventory support."
         description = "A comprehensive TypeWriter extension providing advanced gameplay features for Minecraft servers on Paper 1.21+. Fully compatible with the official TypeWriter engine and PlaceholderAPI."
-        engineVersion = "0.9.0-beta-176"
+        engineVersion = "0.9.0-beta-177"
         channel = com.typewritermc.moduleplugin.ReleaseChannel.BETA
         
         paper()
