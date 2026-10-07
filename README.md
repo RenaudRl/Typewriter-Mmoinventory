@@ -1,31 +1,63 @@
 # MMO Inventory Extension
+
 ![Java Version](https://img.shields.io/badge/Java-21-orange)
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen)
-![Target](https://img.shields.io/badge/Target-Paper%20/%20Folia%20/%20BTC--CORE-blue)
-**MMO Inventory Extension** is a specialized integration module for **TypeWriter**, engineered for **BTC Studio** infrastructure. It bridges the gap between [MMOInventory](https://docs.phoenixdevt.fr/mmoinventory/) and the TypeWriter engine, allowing mechanics to interact with custom equipment slots and artifacts.
+![Target](https://img.shields.io/badge/Target-Paper-blue)
+![Typewriter](https://img.shields.io/badge/Typewriter-0.9.0--beta--177-purple)
+
+**MMO Inventory Extension** is an integration module for **TypeWriter**, built for **BTC Studio** infrastructure. It connects [MMOInventory](https://docs.phoenixdevt.fr/mmoinventory/) to the Typewriter engine: one fact tells whether a player carries given MMOItems in a custom MMOInventory inventory.
+
 ---
-## 🚀 Key Features
-### 🎒 Slot Awareness
-- **Custom Equipment Detection**: Hook into non-vanilla slots such as accessories, capes, and artifacts.
-- **Dynamic Equipment Logic**: Trigger actions or gate features based on what a player is currently wearing.
-### 🔍 MMOItem Integration
-- **Type & ID Filtering**: Identify specific MMOItems with precision to ensure accurate logic execution.
-- **Equipment Criteria**: Use equipped status as a prerequisite for quests, dialogue, or world interactions.
+
+## 🧩 Available Entries
+
+| Type | Entry | Role |
+|---|---|---|
+| Fact | `mmoinventory_check_item_fact` | Reads 1 when the player holds the listed MMOItems, otherwise 0 |
+
+Fields of `mmoinventory_check_item_fact`:
+
+- `inventoryName`: name of the custom inventory defined in MMOInventory.
+- `itemsToCheck`: comma-separated `TYPE:ID` or `TYPE:ID:amount` (amount defaults to 1), matched on the MMOItems type and ID; stacks of the same item are added together.
+- `requireAllItems`: true = every listed item is required, false = any one is enough.
+
+Only MMOItems are recognised. The fact reads 0 when MMOInventory is not installed, the inventory does not exist or a field is empty.
+
 ---
+
+## 📋 Requirements
+
+- **Typewriter** `0.9.0-beta-177` and its **Quest** extension
+- **Paper** (no Folia support is promised)
+- **MMOInventory**, **MMOItems** and MythicLib on the server (built against MythicLib `1.6.2` and MMOItems `6.9.2`)
+
 ## ⚙️ Configuration
-MMO Inventory Extension configuration is managed via TypeWriter's manifest system.
+
+Everything is configured from the Typewriter web panel through the fact entry. The extension declares no command and no permission.
+
 ## 🛠 Building & Deployment
+
 Requires **Java 21**.
+
 ```bash
 # Clone the repository
-git clone https://github.com/RenaudRl/TypeWriter-MmoInventoryExtension.git
-cd TypeWriter-MmoInventoryExtension
+git clone https://github.com/RenaudRl/Typewriter-Mmoinventory.git
+cd Typewriter-Mmoinventory
+
 # Build the project
 ./gradlew clean build
+```
 
-## Documentation
+Output: `build/libs/MMOInventoryExtension-<version>.jar`
 
-Full documentation available at [BTC Studio Docs](https://docs.borntocraftstudio.net/extensions/free/mmo-inventory/).
+---
+
+## 🤝 Credits & Inspiration
+- **[TypeWriter](https://github.com/gabber235/Typewriter)** - The engine this extension is built for.
+- **[BTC Studio](https://github.com/RenaudRl)** - Maintenance and specialized optimizations.
+
+## 📖 Documentation
+
+Full documentation: [BTC Studio Docs](https://docs.borntocraftstudio.net/extensions/free/mmo-inventory/).
 
 ---
 
